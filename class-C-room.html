@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class C Rooms - Paradise Beach Resort</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0a0a0a;
+    color:white;
+}
+
+/* HEADER */
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:999;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+}
+
+.logo{
+    color:#fff;
+    font-size:26px;
+    font-weight:bold;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    position:relative;
+}
+
+nav ul li a::after{
+    content:''; 
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#00e5ff;
+    transition:0.4s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* PAGE CONTENT */
+.main{
+    padding-top:120px;
+    text-align:center;
+    position:relative;
+    z-index:1;
+}
+
+.main h1{
+    font-size:42px;
+    margin-bottom:50px;
+}
+
+/* ROOMS */
+.rooms{
+    display:flex;
+    gap:30px;
+    justify-content:center;
+    flex-wrap:wrap;
+    padding-bottom:60px;
+}
+
+.room-card{
+    width:300px;
+    border-radius:20px;
+    overflow:hidden;
+    background:#1c1c1c;
+    transition:0.4s;
+    box-shadow:0 0 15px rgba(0,0,0,0.5);
+    opacity:0;             /* start hidden */
+    transform:translateY(50px); /* start lower */
+    animation: fadeUp 1s ease forwards; /* apply fadeUp */
+}
+
+.room-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(0,200,255,0.6);
+}
+
+.room-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.room-info{
+    padding:20px;
+}
+
+.price{
+    color:#00e5ff;
+    font-size:22px;
+    margin:10px 0;
+}
+
+.btn{
+    display:inline-block;
+    padding:10px 25px;
+    background:linear-gradient(45deg,#00c6ff,#0072ff);
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    transition:0.4s;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px rgba(0,200,255,0.8);
+}
+
+/* BACKGROUND SLIDER (Same as Homepage) */
+.hero-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.hero-bg .slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    animation:fade 16s infinite;
+    animation-fill-mode:both;
+}
+
+.hero-bg .slide:nth-child(1){background-image:url('8.jpg'); animation-delay:0s;}
+.hero-bg .slide:nth-child(2){background-image:url('9.jpg'); animation-delay:4s;}
+.hero-bg .slide:nth-child(3){background-image:url('10.jpg'); animation-delay:8s;}
+.hero-bg .slide:nth-child(4){background-image:url('11.jpg'); animation-delay:12s;}
+
+.hero-bg::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6));
+    z-index:1;
+}
+
+@keyframes fade{
+    0%{opacity:0;}
+    5%{opacity:1;}
+    25%{opacity:1;}
+    30%{opacity:0;}
+    100%{opacity:0;}
+}
+
+/* PAGE TITLE */
+.page-title{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px 50px;
+    margin:0 auto 50px auto;
+    border-radius:15px;
+    border:2px solid #00c6ff;
+    box-shadow:0 0 20px rgba(0,198,255,0.4);
+    background:rgba(0,0,0,0.4);
+    width:fit-content;
+    opacity:0;
+    transform:translateY(50px);
+    animation:fadeUp 1s ease forwards;
+    animation-delay:0.3s;
+}
+
+.page-title h1{
+    font-size:42px;
+    color:white;
+}
+
+@keyframes glow{
+    0%{box-shadow:0 0 10px rgba(0,198,255,0.4);}
+    50%{box-shadow:0 0 25px rgba(0,198,255,0.9);}
+    100%{box-shadow:0 0 10px rgba(0,198,255,0.4);}
+}
+
+.page-title{
+    animation:glow 2s infinite, fadeUp 1s ease forwards;
+}
+
+/* FADEUP KEYFRAMES */
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(50px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* Stagger room cards */
+.room-card:nth-child(1){animation-delay:0.5s;}
+.room-card:nth-child(2){animation-delay:0.8s;}
+.room-card:nth-child(3){animation-delay:1.1s;}
+.room-card:nth-child(4){animation-delay:1.4s;}
+.room-card:nth-child(5){animation-delay:1.7s;}
+.room-card:nth-child(6){animation-delay:2.0s;}
+.room-card:nth-child(7){animation-delay:2.3s;}
+.room-card:nth-child(8){animation-delay:2.6s;}
+
+
+@media(max-width:768px){
+    nav ul{display:none;}
+    .main h1{font-size:30px;}
+}
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 10%;
+  margin: 40px auto;
+}
+
+.nav-buttons .btn {
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 30px;
+  transition: 0.4s;
+}
+
+/* Back button style */
+.back-btn {
+  background: linear-gradient(45deg,#ff6a00,#ff0000);
+}
+
+/* Hover effects */
+.nav-buttons .btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(0,200,255,0.8);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #00e5ff;
+}
+
+.logo-img {
+  width: 50px;
+  margin-right: 0px;
+  filter: drop-shadow(0 0 6px #00e5ff);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 0px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+  color: #00e5ff;
+}
+
+.nav-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 0px;
+  filter: drop-shadow(0 0 4px #00e5ff);
+}
+.footer {
+  background: #111;        /* dark background */
+  color: #fff;             /* white text */
+  text-align: center;      /* center the text */
+  padding: 15px 0;         /* spacing */
+  font-size: 14px;         /* smaller text */
+  margin-top: 40px;        /* space above footer */
+}
+
+</style>
+</head>
+
+<body>
+    <!-- HERO BACKGROUND ANIMATION -->
+    <div class="hero-bg">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+
+<header>
+    <nav class="container">
+         <div class="logo">
+  <img src="2.png" alt="Paradise Beach Resort Logo" class="logo-img">
+  Paradise Beach Resort
+</div>
+<ul class="nav-menu">
+  <li><a href="home.html"><img src="4.png" alt="Home" class="nav-icon"> Home</a></li>
+  <li><a href="room.html"><img src="5.png" alt="Rooms" class="nav-icon"> Rooms</a></li>
+  <li><a href="reservation.html"><img src="6.png" alt="Reserve" class="nav-icon"> Reserve</a></li>
+  <li><a href="about.html"><img src="7.png" alt="About Us" class="nav-icon"> About Us</a></li>
+  <li><a href="contact.html"><img src="8.png" alt="Contact" class="nav-icon"> Contact</a></li>
+</ul>
+    </nav>
+</header>
+
+<div class="main">
+    <div class="page-title">
+        <h1>Class C- Premium Rooms🛏️</h1>
+    </div>
+    <div class="rooms">
+        <div class="room-card">
+            <img src="47.jpg" alt="Room 1">
+            <div class="room-info">
+                <h3>Room 1</h3>
+                <p>Capacity: 2 pax</p>
+                <p>Features: King bed, city view, mini-bar, tea/coffee maker</p>
+                <p class="price">$320 / night</p>
+                <a href="reservation.html" class="btn">Book Now</a>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <img src="48.jpg" alt="Room 2">
+            <div class="room-info">
+                <h3>Room 2</h3>
+                <p>Capacity: 4 pax</p>
+                <p>Features: Two queen beds, ocean view, balcony, premium amenities</p>
+                <p class="price">$520 / night</p>
+                <a href="reservation.html" class="btn">Book Now</a>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <img src="49.jpg" alt="Room 3">
+            <div class="room-info">
+                <h3>Room 3</h3>
+                <p>Capacity: 6 pax</p>
+                <p>Features: Multiple bedrooms, private terrace, jacuzzi, premium amenities, butler service</p>
+                <p class="price">$699 / night</p>
+                <a href="reservation.html" class="btn">Book Now</a>
+            </div>
+        </div>
+        <div class="room-card">
+            <img src="50.jpg" alt="Room 4">
+            <div class="room-info">
+                <h3>Room 4</h3>
+                <p>Capacity: 8 pax</p>
+                <p>Features: Spacious layout, private balcony, premium amenities</p>
+                <p class="price">$760 / night</p>
+                <a href="reservation.html" class="btn">Book Now</a>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <img src="51.jpg" alt="Room 5">
+            <div class="room-info">
+                <h3>Room 5</h3>
+                <p>Capacity: 10 pax</p>
+                <p>Features: Multiple bedrooms, private terrace, jacuzzi, premium amenities, butler service</p>
+                <p class="price">$899 / night</p>
+                <a href="reservation.html" class="btn">Book Now</a>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <img src="52.jpg" alt="Room 6">
+            <div class="room-info">
+                <h3>Room 6</h3>
+                <p>Capacity: 12 pax</p>
+                <p>Features: Multiple bedrooms, private terrace, jacuzzi, premium amenities, butler service</p>
+                <p class="price">$1099 / night</p>
+                <a href="reservation.html" class="btn">Book Now</a>
+            </div>
+        </div>
+        <div class="room-card">
+            <img src="53.jpg" alt="Room 7">
+            <div class="room-info">
+                <h3>Room 7</h3>
+                <p>Capacity: 14 pax</p>
+                <p>Features: Multiple bedrooms, private terrace, jacuzzi, premium amenities, butler service</p>
+                <p class="price">$1199 / night</p>
+                <a href="reservation.html" class="btn">Book Now</a>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <img src="54.jpg" alt="Room 8">
+            <div class="room-info">
+                <h3>Room 8</h3>
+                <p>Capacity: 16 pax</p>
+                <p>Features: Multiple bedrooms, private terrace, jacuzzi, premium amenities, butler service</p>
+                <p class="price">$1399 / night</p>
+                <a href="reservation.html" class="btn">Book Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="nav-buttons">
+  <a href="class-B-room.html" class="btn back-btn">⬅ Back</a>
+  
+</div>
+</div>
+<footer class="footer">
+  <p>&copy; 2026 Paradise Beach Resort. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

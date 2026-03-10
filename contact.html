@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Paradise Beach Resort</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, sans-serif;
+}
+
+body{
+    background:#0a0a0a;
+    color:white;
+}
+
+/* ===== Header ===== */
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:999;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:bold;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    position:relative;
+}
+
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#00e5ff;
+    transition:0.4s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* ===== Contact Section ===== */
+.contact-section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding-top:120px;
+    padding-bottom:80px;
+    
+}
+
+.contact-box{
+    width:90%;
+    max-width:900px;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(15px);
+    padding:50px;
+    border-radius:20px;
+    border:2px solid #00c6ff;
+    box-shadow:0 0 30px rgba(0,198,255,0.5);
+    animation:fadeUp 1.5s ease;
+}
+
+.contact-box h2{
+    text-align:center;
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.contact-box p{
+    text-align:center;
+    margin-bottom:40px;
+    color:#ccc;
+}
+
+/* Layout */
+.contact-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+/* Contact Info */
+.contact-info h3{
+    margin-bottom:20px;
+    color:#00c6ff;
+}
+
+.contact-info p{
+    margin-bottom:15px;
+    color:#ddd;
+}
+
+/* Form */
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    resize:none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border:1px solid #00c6ff;
+    box-shadow:0 0 10px rgba(0,198,255,0.6);
+}
+
+.contact-btn{
+    padding:14px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(45deg,#00c6ff,#0072ff);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.contact-btn:hover{
+    transform:translateY(-5px) scale(1.05);
+    box-shadow:0 0 25px rgba(0,198,255,0.8);
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .contact-content{
+        grid-template-columns:1fr;
+    }
+}
+.hero-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.hero-bg .slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    animation:fade 16s infinite;
+    animation-fill-mode:both;
+}
+
+/* Individual slides */
+.hero-bg .slide:nth-child(1){
+    background-image:url('26.jpg');
+    animation-delay:0s;
+}
+.hero-bg .slide:nth-child(2){
+    background-image:url('27.jpg');
+    animation-delay:4s;
+}
+.hero-bg .slide:nth-child(3){
+    background-image:url('28.jpg');
+    animation-delay:8s;
+}
+.hero-bg .slide:nth-child(4){
+    background-image:url('29.jpg');
+    animation-delay:12s;
+}
+
+/* Gradient overlay on top of slides */
+.hero-bg::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6));
+    z-index:1;
+}
+
+@keyframes fade{
+    0%{opacity:0;}
+    5%{opacity:1;}
+    25%{opacity:1;}
+    30%{opacity:0;}
+    100%{opacity:0;}
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #00e5ff;
+}
+
+.logo-img {
+  width: 50px;
+  margin-right: 0px;
+  filter: drop-shadow(0 0 6px #00e5ff);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 0px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+  color: #00e5ff;
+}
+
+.nav-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 0px;
+  filter: drop-shadow(0 0 4px #00e5ff);
+}
+.footer {
+  background: #111;        /* dark background */
+  color: #fff;             /* white text */
+  text-align: center;      /* center the text */
+  padding: 15px 0;         /* spacing */
+  font-size: 14px;         /* smaller text */
+  margin-top: 40px;        /* space above footer */
+}
+
+</style>
+</head>
+
+<body>
+ <!-- HERO BACKGROUND ANIMATION -->
+    <div class="hero-bg">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+<header>
+    <nav class="container">
+         <div class="logo">
+  <img src="2.png" alt="Paradise Beach Resort Logo" class="logo-img">
+  Paradise Beach Resort
+</div>
+<ul class="nav-menu">
+  <li><a href="home.html"><img src="4.png" alt="Home" class="nav-icon"> Home</a></li>
+  <li><a href="room.html"><img src="5.png" alt="Rooms" class="nav-icon"> Rooms</a></li>
+  <li><a href="reservation.html"><img src="6.png" alt="Reserve" class="nav-icon"> Reserve</a></li>
+  <li><a href="about.html"><img src="7.png" alt="About Us" class="nav-icon"> About Us</a></li>
+  <li><a href="contact.html"><img src="8.png" alt="Contact" class="nav-icon"> Contact</a></li>
+</ul>
+    </nav>
+</header>
+<section class="contact-section">
+    <div class="contact-box">
+        <h2>Get in Touch</h2>
+        <p>We would love to hear from you. Reach out to us anytime.</p>
+
+        <div class="contact-content">
+
+            <!-- Left Side: Info -->
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>📍 Paradise Beach Resort, Ocean Drive</p>
+                <p>📞 +63 912 345 6789</p>
+                <p>✉️ info@paradisebeach.com</p>
+                <p>🕒 Open 24/7 for reservations</p>
+            </div>
+
+            <!-- Right Side: Form -->
+           <form class="contact-form" action="contact-success.html">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit" class="contact-btn">Send Message</button>
+            </form>
+
+        </div>
+    </div>
+</section>
+<footer class="footer">
+  <p>&copy; 2026 Paradise Beach Resort. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

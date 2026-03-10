@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Paradise Beach Resort</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, sans-serif;
+}
+
+body{
+    background:#0a0a0a;
+    color:white;
+}
+
+/* ================= HEADER ================= */
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:999;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:bold;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    position:relative;
+}
+
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#00e5ff;
+    transition:0.4s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* ================= HERO BACKGROUND ANIMATION ================= */
+.hero-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.hero-bg .slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    animation:fade 16s infinite;
+    animation-fill-mode:both;
+}
+
+/* Individual slides */
+.hero-bg .slide:nth-child(1){ background-image:url('15.jpg'); animation-delay:0s; }
+.hero-bg .slide:nth-child(2){ background-image:url('16.jpg'); animation-delay:4s; }
+.hero-bg .slide:nth-child(3){ background-image:url('17.jpg'); animation-delay:8s; }
+.hero-bg .slide:nth-child(4){ background-image:url('18.jpg'); animation-delay:12s; }
+
+/* Gradient overlay on top of slides */
+.hero-bg::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6));
+    z-index:1;
+}
+
+@keyframes fade{
+    0%{opacity:0;}
+    5%{opacity:1;}
+    25%{opacity:1;}
+    30%{opacity:0;}
+    100%{opacity:0;}
+}
+
+/* ================= FADEUP ANIMATION ================= */
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ================= ABOUT SECTION ================= */
+.about-section{
+    min-height:100vh;
+    padding:150px 10% 80px;
+    position:relative;
+    z-index:2;
+}
+
+/* About Intro Box */
+.about-content{
+    max-width:900px;
+    margin:auto;
+    padding:40px;
+    border-radius:25px;
+    border:2px solid #00c6ff;
+    background:rgba(0,0,0,0.55);
+    box-shadow:0 0 25px rgba(0,198,255,0.4);
+    text-align:center;
+    margin-bottom:80px;
+
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp 1s ease forwards;
+    animation-delay:0.3s;
+}
+
+.about-content h1{ font-size:38px; margin-bottom:15px; }
+.about-content p{ color:#ccc; line-height:1.6; }
+
+/* ================= CORE VALUES ================= */
+.core-title{
+    text-align:center;
+    margin-bottom:40px;
+
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp 1s ease forwards;
+    animation-delay:0.6s;
+}
+
+.core-title span{
+    display:inline-block;
+    border:2px solid #00c6ff;
+    padding:12px 40px;
+    border-radius:15px;
+    font-size:26px;
+    color:#00c6ff;
+    box-shadow:0 0 20px rgba(11,0,0,0.3);
+    background:rgba(0,0,0,0.7);
+}
+
+/* Acronym Rows */
+.acronym-container{
+    max-width:1000px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+    margin-bottom:80px;
+}
+
+/* Staggered fadeUp for rows */
+.acronym-row{
+    display:flex;
+    gap:30px;
+    padding:20px 30px;
+    border:2px solid #00c6ff;
+    border-radius:18px;
+    background:rgba(0,0,0,0.7);
+    box-shadow:0 10px 25px rgba(0,0,0,0.6);
+    transition:0.4s ease;
+
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp 1s ease forwards;
+}
+
+/* Assign delays for each row */
+.acronym-row:nth-child(1){ animation-delay:0.8s; }
+.acronym-row:nth-child(2){ animation-delay:1s; }
+.acronym-row:nth-child(3){ animation-delay:1.2s; }
+.acronym-row:nth-child(4){ animation-delay:1.4s; }
+.acronym-row:nth-child(5){ animation-delay:1.6s; }
+.acronym-row:nth-child(6){ animation-delay:1.8s; }
+.acronym-row:nth-child(7){ animation-delay:2s; }
+.acronym-row:nth-child(8){ animation-delay:2.2s; }
+
+.acronym-row:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 35px rgba(0,198,255,0.7);
+}
+
+.acronym-letter{ font-size:32px; font-weight:bold; color:#00c6ff; min-width:40px; }
+.acronym-word{ font-size:20px; font-weight:bold; min-width:220px; }
+.acronym-desc{ color:#ccc; line-height:1.5; }
+
+/* ================= MISSION & VISION ================= */
+.mv-container{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-bottom:80px;
+}
+
+.box{
+    background:rgba(0,0,0,0.65);
+    padding:30px;
+    border-radius:20px;
+    width:300px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.6);
+    transition:0.4s ease;
+
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp 1s ease forwards;
+}
+
+/* Stagger delays */
+.mv-container .box:nth-child(1){ animation-delay:2.4s; }
+.mv-container .box:nth-child(2){ animation-delay:2.6s; }
+
+.box:hover{
+    transform:translateY(-12px);
+    box-shadow:0 0 35px rgba(0,198,255,0.6);
+}
+
+.box h3{ color:#00c6ff; margin-bottom:15px; }
+.box p{ color:#ccc; line-height:1.6; }
+
+/* ================= TEAM ================= */
+.team-title{
+    text-align:center;
+    margin-bottom:40px;
+
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp 1s ease forwards;
+    animation-delay:2.8s;
+}
+
+.team-title h2{ font-size:30px; color:#00c6ff; }
+
+.team-cards{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.team-cards .box{
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp 1s ease forwards;
+}
+
+.team-cards .box:nth-child(1){ animation-delay:3s; }
+.team-cards .box:nth-child(2){ animation-delay:3.2s; }
+.team-cards .box:nth-child(3){ animation-delay:3.4s; }
+.team-cards .box:nth-child(4){ animation-delay:3.6s; }
+.team-cards .box:nth-child(5){ animation-delay:3.8s; }
+.team-cards .box:nth-child(6){ animation-delay:4s; }
+
+.team-cards img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:15px;
+    transition:0.4s;
+}
+
+.team-cards .box:hover img{
+    transform:scale(1.05);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+    .acronym-row{ flex-direction:column; }
+    .acronym-word{ min-width:auto; }
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #00e5ff;
+}
+
+.logo-img {
+  width: 50px;
+  margin-right: 0px;
+  filter: drop-shadow(0 0 6px #00e5ff);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 0px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+  color: #00e5ff;
+}
+
+.nav-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 0px;
+  filter: drop-shadow(0 0 4px #00e5ff);
+}
+.footer {
+  background: #111;        /* dark background */
+  color: #fff;             /* white text */
+  text-align: center;      /* center the text */
+  padding: 15px 0;         /* spacing */
+  font-size: 14px;         /* smaller text */
+  margin-top: 40px;        /* space above footer */
+}
+
+</style>
+</head>
+
+<body>
+    <!-- HERO BACKGROUND ANIMATION -->
+    <div class="hero-bg">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+
+<header>
+    <nav class="container">
+         <div class="logo">
+  <img src="2.png" alt="Paradise Beach Resort Logo" class="logo-img">
+  Paradise Beach Resort
+</div>
+<ul class="nav-menu">
+  <li><a href="home.html"><img src="4.png" alt="Home" class="nav-icon"> Home</a></li>
+  <li><a href="room.html"><img src="5.png" alt="Rooms" class="nav-icon"> Rooms</a></li>
+  <li><a href="reservation.html"><img src="6.png" alt="Reserve" class="nav-icon"> Reserve</a></li>
+  <li><a href="about.html"><img src="7.png" alt="About Us" class="nav-icon"> About Us</a></li>
+  <li><a href="contact.html"><img src="8.png" alt="Contact" class="nav-icon"> Contact</a></li>
+</ul>
+    </nav>
+</header>
+
+<section class="about-section">
+
+    <!-- About Intro -->
+    <div class="about-content">
+        <h1>About Paradise Beach Resort</h1>
+        <p>
+            Paradise Beach Resort is your destination for relaxation, luxury, and unforgettable memories.
+            We combine comfort, elegance, and exceptional service to provide a world-class beachfront experience.
+        </p>
+    </div>
+
+    <!-- Core Values -->
+    <div class="core-title">
+        <span>Core Values (PARADISE)</span>
+    </div>
+
+    <div class="acronym-container">
+        <div class="acronym-row"><div class="acronym-letter">P</div><div class="acronym-word">Professionalism</div><div class="acronym-desc">We maintain the highest standards in service and hospitality.</div></div>
+        <div class="acronym-row"><div class="acronym-letter">A</div><div class="acronym-word">Accountability</div><div class="acronym-desc">We take responsibility for delivering excellence.</div></div>
+        <div class="acronym-row"><div class="acronym-letter">R</div><div class="acronym-word">Respect</div><div class="acronym-desc">We value our guests, staff, and environment.</div></div>
+        <div class="acronym-row"><div class="acronym-letter">A</div><div class="acronym-word">Authenticity</div><div class="acronym-desc">We provide genuine and memorable experiences.</div></div>
+        <div class="acronym-row"><div class="acronym-letter">D</div><div class="acronym-word">Dedication</div><div class="acronym-desc">We are committed to exceeding expectations.</div></div>
+        <div class="acronym-row"><div class="acronym-letter">I</div><div class="acronym-word">Integrity</div><div class="acronym-desc">We act honestly and ethically in everything we do.</div></div>
+        <div class="acronym-row"><div class="acronym-letter">S</div><div class="acronym-word">Service Excellence</div><div class="acronym-desc">We aim to deliver unforgettable service every time.</div></div>
+        <div class="acronym-row"><div class="acronym-letter">E</div><div class="acronym-word">Experience</div><div class="acronym-desc">We create lasting memories for every guest.</div></div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <div class="mv-container">
+        <div class="box">
+            <h3>Our Mission</h3>
+            <p>To provide exceptional hospitality services that create comfort, joy, and unforgettable experiences for every guest.</p>
+        </div>
+
+        <div class="box">
+            <h3>Our Vision</h3>
+            <p>To become a leading beachfront resort known for excellence, sustainability, and world-class service.</p>
+        </div>
+    </div>
+
+    <!-- Team -->
+    <div class="team-title">
+        <h2>Meet Our Team</h2>
+    </div>
+
+    <div class="team-cards">
+    <div class="box">
+        <img src="12.jpg" alt="Manager">
+        <h3>John Smith</h3>
+        <p>General Manager</p>
+    </div>
+
+    <div class="box">
+        <img src="20.jpg" alt="Chef">
+        <h3>Maria Lopez</h3>
+        <p>Executive Chef</p>
+    </div>
+
+    <div class="box">
+        <img src="13.jpg" alt="Front Desk">
+        <h3>Anna Rivera</h3>
+        <p>Front Desk Officer</p>
+    </div>
+
+    <div class="box">
+        <img src="14.jpg" alt="Housekeeping">
+        <h3>Mark Santos</h3>
+        <p>Housekeeping Supervisor</p>
+    </div>
+
+    <div class="box">
+        <img src="19.jpg" alt="Concierge">
+        <h3>Jessica Cruz</h3>
+        <p>Concierge</p>
+    </div>
+
+    <div class="box">
+        <img src="21.jpg" alt="Security">
+        <h3>David Lim</h3>
+        <p>Security Officer</p>
+    </div>
+</div>
+
+</section>
+<footer class="footer">
+  <p>&copy; 2026 Paradise Beach Resort. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

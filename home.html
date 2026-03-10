@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paradise Beach Resort</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, sans-serif;
+}
+body{
+    background:#0a0a0a;
+}
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:999;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+}
+
+.logo{
+    color:#fff;
+    font-size:26px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    position:relative;
+}
+
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#00e5ff;
+    transition:0.4s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+
+.hero{
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6));
+}
+
+
+.hero::before,
+.hero::after,
+.hero .slide1,
+.hero .slide2 {
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    animation:fade 16s infinite;
+    animation-fill-mode: both;
+    z-index:-1;
+}
+
+
+.hero::before {
+    background-image: url('1.jpg');
+    animation-delay: 0s;
+}
+.hero::after {
+    background-image: url('2.jpg');
+    animation-delay: 4s;
+}
+.hero .slide1 {
+    background-image: url('3.jpg');
+    animation-delay: 8s;
+}
+.hero .slide2 {
+    background-image: url('4.jpg');
+    animation-delay: 12s;
+}
+
+
+@keyframes fade {
+    0% {opacity:0;}
+    5% {opacity:1;}
+    25% {opacity:1;}
+    30% {opacity:0;}
+    100% {opacity:0;}
+}
+
+
+.hero-content {
+    position: relative;
+    display: inline-block;           /* shrink-wrap to content */
+    padding: 40px 60px;              /* inner spacing */
+    text-align: center;
+    color: white;
+    border-radius: 20px;
+    border: 2px solid #00c6ff;      /* glowing blue border */
+    box-shadow: 0 0 20px rgba(0,198,255,0.4);
+    background: rgba(0,0,0,0.4);    /* semi-transparent background */
+    animation: fadeUp 1.5s ease;
+    max-width: 60%;                  /* responsive on small screens */
+    margin: 0 auto;                  /* center horizontally */
+}
+
+/* Optional glowing animation */
+@keyframes glow {
+    0% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
+    50% { box-shadow: 0 0 35px rgba(0,198,255,0.8); }
+    100% { box-shadow: 0 0 15px rgba(0,198,255,0.4); }
+}
+
+.hero-content {
+    animation: fadeUp 1.5s ease, glow 2s infinite;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 25px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+@media(max-width:768px){
+    .hero-content {
+        padding: 30px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+}
+.btn {
+   display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(45deg, #00c8ff00, #0073ff08);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: 0.3s;
+
+}
+
+.btn:hover {
+   transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,200,255,0.8);
+
+}
+.btn-icon {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 0 4px #000404);
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:768px){
+    .hero-content{
+        padding:40px 25px;
+    }
+
+    .hero-content h1{
+        font-size:34px;
+    }
+
+    nav ul{
+        display:none;
+    }
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #00e5ff;
+}
+
+.logo-img {
+  width: 50px;
+  margin-right: 0px;
+  filter: drop-shadow(0 0 6px #00e5ff);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 0px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+  color: #00e5ff;
+}
+
+.nav-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 0px;
+  filter: drop-shadow(0 0 4px #00e5ff);
+}
+.footer {
+  background: #111;        /* dark background */
+  color: #fff;             /* white text */
+  text-align: center;      /* center the text */
+  padding: 15px 0;         /* spacing */
+  font-size: 14px;         /* smaller text */
+  margin-top: 40px;        /* space above footer */
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="container">
+         <div class="logo">
+  <img src="2.png" alt="Paradise Beach Resort Logo" class="logo-img">
+  Paradise Beach Resort
+</div>
+<ul class="nav-menu">
+  <li><a href="home.html"><img src="4.png" alt="Home" class="nav-icon"> Home</a></li>
+  <li><a href="room.html"><img src="5.png" alt="Rooms" class="nav-icon"> Rooms</a></li>
+  <li><a href="reservation.html"><img src="6.png" alt="Reserve" class="nav-icon"> Reserve</a></li>
+  <li><a href="about.html"><img src="7.png" alt="About Us" class="nav-icon"> About Us</a></li>
+  <li><a href="contact.html"><img src="8.png" alt="Contact" class="nav-icon"> Contact</a></li>
+</ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="slide1"></div>
+    <div class="slide2"></div>
+    <div class="slide3"></div>
+    <div class="slide4"></div>
+    <div class="hero-content">
+        <h1>Welcome to Paradise Beach Resort</h1>
+        <p>
+            We’re delighted to have you here. Relax, explore, and let us make your beach getaway unforgettable.
+            From luxurious rooms to breathtaking ocean views, every detail is designed with your comfort in mind.
+            Your paradise experience starts now and enjoy every moment! 
+        </p>
+        <a href="about.html" class="btn">
+  <img src="7.png" alt="About Us Icon" class="btn-icon"> About Us
+</a>
+<a href="reservation.html" class="btn">
+  <img src="6.png" alt="Book Icon" class="btn-icon"> Book Your Stay
+</a>
+<a href="contact.html" class="btn">
+  <img src="8.png" alt="Contact Icon" class="btn-icon"> Contact
+</a>
+<a href="receipt1.html" class="btn">
+  <img src="1.png" alt="Receipt Icon" class="btn-icon"> Receipt
+</a>
+
+    </div>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2026 Paradise Beach Resort. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
